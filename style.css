@@ -1,21 +1,88 @@
+/* === Fonts & Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  font-family: 'IBM Plex Mono', monospace;
   background-color: #111;
-  color: #fff;
-  font-family: Arial, sans-serif;
+  color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* === Dotted Grid Background === */
+.grid-background {
+  background-color: oklch(93.082% 0.03544 331.441);
+  background-image: radial-gradient(#ff00aa 1px, transparent 1px);
+  background-size: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   padding: 2rem;
-  line-height: 1.6;
 }
 
-main {
-  max-width: 700px;
-  margin: auto;
+/* === Centered Sticky Note Card === */
+.card {
+  background-color: #fa88ce; /* pale yellow like a sticky note */
+  border: 1px solid #f32fd2;
+  box-shadow: 6px 6px 0px #33132530;
+  padding: 2rem 1.5rem;
+  max-width: 280px;
+  border-radius: 6px;
+  text-align: left;
+  transform: rotate(0deg); /* slight tilt */
+  transition: transform 0.2s ease;
 }
 
-a {
-  color: #aaa;
+.card:hover {
+  transform: rotate(2deg) scale(1.02); /* hover effect */
+}
+
+
+.card h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.links a {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #66ccff;
   text-decoration: none;
+  font-weight: bold;
 }
 
-a:hover {
+.links a:hover {
   text-decoration: underline;
 }
+
+.cards-container {
+  position: relative; /* So absolutely positioned children are relative to this */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 1rem;
+  padding-top: 300px; /* or enough height to clear the name card */
+}
+
+/* New styles for the name card */
+.name-card {
+  position: absolute;
+  top: 1rem;     /* distance from the top */
+  left: 1rem;    /* distance from the left */
+  max-width: 250px;
+  z-index: 10;   /* stay on top */
+}
+
