@@ -7,14 +7,19 @@
 
 body {
   font-family: 'IBM Plex Mono', monospace;
-  background-color: #111;
-  color: #f5f5f5;
+  background-color: oklch(94.44% 0.02437 331.7);
+  background-image: radial-gradient(#ff00aa 1px, transparent 1px);
+  background-size: 20px 20px;
   min-height: 100vh;
+  margin: 0;
+  color: #2e2e2e; /* or your preferred text color */
 }
+
+
 
 /* === Dotted Grid Background === */
 .grid-background {
-  background-color: oklch(93.082% 0.03544 331.441);
+  background-color: oklch(94.44% 0.02437 331.7);
   background-image: radial-gradient(#ff00aa 1px, transparent 1px);
   background-size: 20px 20px;
   display: flex;
@@ -26,11 +31,11 @@ body {
 
 /* === Centered Sticky Note Card === */
 .card {
-  background-color: #fa88ce; /* pale yellow like a sticky note */
-  border: 1px solid #f32fd2;
-  box-shadow: 6px 6px 0px #33132530;
+  background-color: #f599d2; /* pale yellow like a sticky note */
+  border: 1px solid #f364db;
+  box-shadow: 6px 6px 0px #6d294f30;
   padding: 2rem 1.5rem;
-  max-width: 280px;
+  max-width: none;
   border-radius: 6px;
   text-align: left;
   transform: rotate(0deg); /* slight tilt */
@@ -47,11 +52,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.subtitle {
-  font-size: 1rem;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-}
 
 .links a {
   display: block;
@@ -66,23 +66,67 @@ body {
 }
 
 .cards-container {
-  position: relative; /* So absolutely positioned children are relative to this */
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
   gap: 2rem;
-  justify-content: center;
+  padding: 3rem 2rem 2rem 2rem;
   max-width: 1200px;
-  width: 100%;
-  padding: 1rem;
-  padding-top: 300px; /* or enough height to clear the name card */
+  margin: 0 auto;
 }
 
-/* New styles for the name card */
-.name-card {
-  position: absolute;
-  top: 1rem;     /* distance from the top */
-  left: 1rem;    /* distance from the left */
-  max-width: 250px;
-  z-index: 10;   /* stay on top */
+
+
+
+.site-header {
+  position: static;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  max-width: 1200px;
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: left;
+  line-height: 1.4;
+  z-index: 1;
+ 
 }
 
+
+
+.site-name {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333333;
+  margin: 2rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #333333;
+  margin: 2rem;
+}
+
+.about-card {
+  grid-column: 1 / span 3; /* spans 3 columns */
+  grid-row: 1 / span 2;    /* spans 2 rows */
+}
+
+.contact-card {
+  grid-column: 4 / 5;
+  grid-row: 1 / 3;
+}
+.si-card {
+  grid-column: 1 / 2; 
+  grid-row: 3 / 6;
+}
+
+.animation-card {
+  grid-column: 2 / 3; 
+  grid-row: 3 / 6;
+}
+
+.storyb-card {
+  grid-column: 3 / 4;
+  grid-row: 3 / 6; 
+}
